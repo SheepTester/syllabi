@@ -1,0 +1,467 @@
+<div class="content">
+  <div class="row">
+    <h1>Theory of Computation
+    </h1>
+    <h2>CSE105Sp23</h2>
+    <h3>
+      Is there a problem that NO computer can ever solve?<br>
+      What resources are needed to solve a problem?<br>
+      Are some problems harder than others? <br>
+    </h3>
+    <p>In this course, we will explore what it means to be "computable". We begin with a very constrained model of
+      computation, and work our way to the most powerful, the Turing machine. We'll see how remarkable 
+      this model is in terms of how much it captures about the capabilities of computation, even though 
+      it appears far removed from implementation. 
+      <strong>Alan Turing</strong>
+       formalized the notion of "algorithm" using this model <i>even before there were any physical computers</i>.
+      You'll also learn about the relationship of these models to some essential tools in a computer 
+      scientist's toolkit, such as regular expressions and reductions. Finally, you'll develop 
+      your technical communication skills in writing formal arguments and proofs. 
+    </p>
+    <!-- Syllabus -->
+    <h2>Syllabus</h2>
+    <dl>
+      <dt>Pre-class survey</dt><dd>Please fill out the pre-class survey
+        that was sent to your @ucsd.edu email so that we can learn about your preferences
+        and needs for this quarter; you can also find a link to this survey on our
+        <a href="https://canvas.ucsd.edu/courses/45073" aria-label="Go to Canvas" target="_blank">Canvas</a> page
+        as the <a href="https://canvas.ucsd.edu/courses/45073/assignments/609253" aria-label="Go to FinAid assignment" target="_blank">#FinAid assignment</a> for this quarter.</dd>
+      <dt>Notes and resources</dt><dd>Use our <a href="overview_calendar.html" aria-label="Go to Calendar">Calendar</a> to get links to
+      class times and notes. Lecture
+      material is available in PDF, tex, and html formats so you can download and annotate or print
+      it if you'd like. In class, we'll explore concepts and work through examples.
+      There will often be some <a href="#textbook">pre-class reading</a> (listed on the notes PDF) to help you prepare for class.
+      You may attend whichever lecture suits your schedule, so long as there is space in the room.
+      Lecture recordings are available through the UCSD podcast system and linked from the Calendar page.
+      </dd>
+      <dt>Ask for help</dt><dd>Reach out to the 
+      <a href="courseInfo.html#team" aria-label="Contact a team member">CSE 105 team</a>
+      if you have questions. This term we will be using Piazza for class discussion; sign up to our class discussion
+      <a href="https://piazza.com/ucsd/spring2023/cse105" aria-label="Sign up to Piazza">on Piazza</a>. Drop-in (in person
+      and Zoom) Q&amp;A times are listed on the <a href="office_hours.html">office hours</a> page.
+      You can also reach out to your instructor directly by email: minnes@ucsd.edu or dgrier@ucsd.edu .
+      <em>To address us, please use Prof. Minnes, Dr. Minnes,
+        and/or Mia (with pronouns she/her), or Prof. Grier, Dr. Grier, and/or Daniel (with pronouns he/him), as you feel comfortable. 
+        Please do not use the title Ms./ Mrs. or Mr. for either of us</em>.
+      </dd>
+      <dt>Learn by doing</dt><dd> Review quizzes based on class material are assigned each day. These quizzes will help you
+        track and confirm your understanding of the concepts and examples we work in class.
+        Quizzes can be submitted on <a href="http://gradescope.com" aria-label="Go to Gradescope" target="_blank">Gradescope</a> 
+        as many times (with no penalty) as you like until the quiz deadline:
+        the three quizzes each week are all due on Friday (with no penalty late submission open until Sunday).
+        Your primary out-of-class work for this class will be weekly
+        homework assignments and a project. There will also be an in-class midterm and a 
+        final (at the scheduled time). In each of these <a href="#grades">assessments</a>
+        you will practice using precise tools to represent and solve technical
+        problems and to communicate your solutions and get feedback on your work.</dd>
+      <dt>Collaborate</dt><dd> 
+      The weekly <a href="assignments.html">homework</a> in 
+      this class will be group-work optional; students in previous versions of the class often found group
+      conversations helped them learn the material more deeply, and were fun 
+      (and also an <a href="https://dl.acm.org/doi/10.1145/3478431.3499286" target="_blank">evidence-based practice</a> for learning).
+      To find group members: reach out to
+      people sitting around you in class, in discussion section, or during office hours; you 
+      can also use the "find teammate" tool on Piazza. Students enrolled in different
+      lecture sections may choose to work together in groups. The pre-survey
+      also asks if you want help finding group members: the CSE 105 instructional team can help you connect with
+      other students. We highly recommend
+      meeting synchronously so that your group can work through the homework problems *together*
+      (<a href="https://students.ucsd.edu/campus-services/technology/campus-study-locations.html" target="_blank" )="">
+        in person</a> or online).
+      Note that the project assignment will be completed individually.</dd>
+    </dl>
+  </div>
+  <!-- Team Carousel -->
+  <div class="row">
+    <a name="team"></a>
+    <div id="teamCarousel" class="carousel slide pointer-event" data-ride="carousel" data-interval="false">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active" width="80%">
+          <center>
+            <p class="lead">CSE105Sp23 Instructors</p>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/headshot2.jpg" alt="Mia Minnes" style="height:100px">
+                <figcaption><p class="lead">Dr. Mia Minnes, A00 (She/her/hers)</p></figcaption>
+              </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/Grier.jpg" alt="Daniel Grier" style="height:100px">
+              <figcaption><p class="lead">Dr. Daniel Grier, B00 (He/him/his)</p></figcaption>
+            <br><br><br><br><br>
+          </a></div><a href="#team" class="d-block mb-4 h-100">
+        </a></center><a href="#team" class="d-block mb-4 h-100">
+        </a></div><a href="#team" class="d-block mb-4 h-100">
+        </a><div class="item" width="80%"><a href="#team" class="d-block mb-4 h-100">
+          </a><center><a href="#team" class="d-block mb-4 h-100">
+          <p class="lead">CSE105Sp23 TAs</p>
+            </a><div class="col-lg-3 col-md-3 col-xs-3"><a href="#team" class="d-block mb-4 h-100">
+              </a><a href="#team" class="d-block mb-3 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/Aditya_Giridharan_headshot.jpg" alt="TA image" style="height:100px">
+                </a><figcaption><a href="#team" class="d-block mb-3 h-100">Aditya Giridharan (He/him/his)
+              </a>
+            </figcaption></div>
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <a href="#team" class="d-block mb-3 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/headshot.jpeg" alt="TA image" style="height:100px">
+                </a><figcaption><a href="#team" class="d-block mb-3 h-100">Emma Hogan (She/her/hers)
+              </a>
+            </figcaption></div>
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <a href="#team" class="d-block mb-3 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/image.png" alt="TA image" style="height:100px">
+                </a><figcaption><a href="#team" class="d-block mb-3 h-100">Bhavya Singh
+              </a>
+            </figcaption></div>
+            <div class="col-lg-3 col-md-3 col-xs-3">
+              <a href="#team" class="d-block mb-3 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/abhishek.jpg" alt="TA image" style="height:100px">
+                </a><figcaption><a href="#team" class="d-block mb-3 h-100">Abhishek Tripathi (He/Him)
+              </a>
+            </figcaption></div>
+          </center>
+        </div>
+        <div class="item">
+          <center>
+            <p class="lead">CSE105Sp23 Tutors</p>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/TianyuChen-pic.jpg" alt="Tutor image" style="height:100px">
+                <figcaption>Tianyu Chen (she/her/hers)</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/photo.jpg" alt="Tutor image" style="height:100px">
+                <figcaption>Yuan Gao</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/image1.jpeg" alt="Tutor image" style="height:100px">
+                <figcaption>Lexseal Lin</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/IMG_6697.jpeg" alt="Tutor image" style="height:100px">
+                <figcaption>Saransh Malik (he/him)</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/JoseSalazarHeadshot.jpg" alt="Tutor image" style="height:100px">
+                <figcaption>Jose Salazar (He/him/his)</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/amaarv.jpg" alt="Tutor image" style="height:100px">
+                <figcaption>Amaar Valliani</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/Alex.jpeg" alt="Tutor image" style="height:100px">
+                <figcaption>Alex Wu</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/IMG_2735.jpg" alt="Tutor image" style="height:100px">
+                <figcaption>Patrick Yeh</figcaption>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-4">
+              <a href="#team" class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="../resources/images/zenas.png" alt="Tutor image" style="height:100px">
+                <figcaption>Zenas Zhu</figcaption>
+              </a>
+            </div>
+          </center>
+        </div>
+      </div>
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#teamCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#teamCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <!-- Resources -->
+  <div class="row">
+    <h2>Resources</h2>
+    <a name="textbook"></a>
+    <h3>Textbook and lecture resources</h3>
+    <p>
+      Lecture material is available in PDF and html formats so you can download and annotate or print
+      it if you'd like. If you would like a hard copy of the notes and don't have access to a printer, please 
+      let your instructor know (minnes@ucsd.edu or dgrier@ucsd.edu).
+    </p>
+    <p>The <b>required</b> textbook for this course is <b>Sipser, Michael </b> 
+      <i>Introduction to the Theory of Computation </i>.
+      We highly recommend this book for the class - it's very well-written and we'll be using it extensively.
+      For a physical copy, the Third Edition (international) of this book is available through multiple vendors;
+      we've seen it listed online for under 30 dollars. 
+      I also have a number of copies of the textbook available to borrow for the term 
+      if you have difficulty accessing the book. Please reach out (minnes@ucsd.edu) to arrange a time to 
+      pick up a copy.</p>
+      <p>To brush up on proofs, use:  Richard Hammack, <i> Book of Proof, 2nd ed.</i> 
+        (available for download <a href="http://www.people.vcu.edu/~rhammack/BookOfProof" target="_blank"> here</a>).
+      </p>
+      <h3>Typesetting (LaTeX) Resources</h3>
+      <p>All submitted homework for this class must be typed. Diagrams may be hand-drawn and
+        scanned and included in the typed document. You can use a word processing editor if you
+        like (Microsoft Word, Open Office, Notepad, Vim, Google Docs, etc.). You might
+        find it useful to take this opportunity to learn LaTeX. LaTeX is a markup language used
+        widely in computer science and mathematics. The homework assignment prompts are typed using LaTeX
+        and you can use the source files as templates for typesetting your solutions (click the "LaTeX" 
+        button at the top of each assignment on the <a href="assignments.html">Assignments</a> page to 
+        download the source files).</p>
+      <p>If you have never used LaTeX, we recommend cloud resources
+        that don't require you to download and install LaTeX on your local machine.
+        A good example is <a href="https://www.overleaf.com/" target="_blank" aria-label="Go to Overleaf">Overleaf</a>,
+        which has lots of <a href="https://www.overleaf.com/learn" target="_blank" aria-label="Overleaf documentation">documentation</a>. Overleaf works similar to Google Docs
+        in that all members can edit the file in parallel and changes are updated in real time.
+        There is a way to directly invite group members to your document, but the free
+        version of Overleaf only allows two people to work at the same time.
+        If your group has 3 people, you can turn on link sharing: Click on “Share” in the top right,
+        Click “Turn on link sharing”, Copy the displayed link and share it with your group members.
+        To export your work, click on the “Download PDF” button on the right-hand side
+        If you want to export the raw source files, click on the "Menu" button in the top-left, then click on "Source".
+      </p><p>This <a href="http://en.wikibooks.org/wiki/LaTeX" target="_blank">open source LaTeX reference</a>
+        can be helpful when getting started,
+        and you can use the .tex source of all the files we use in class as templates.</p>
+      <p>Alternatively, you can use Google Docs, which is available through your @ucsd.edu account.
+        You can create documents and then share them with your group members with manual invites
+        or a shareable link. Google Docs has a LaTex add-on that lets you type formulas in
+        a math typesetting environment: search for "Auto-LaTeX Equations" if you want to try this option.
+        You'll need to use the display environment (start and end with $) for all the
+        portions you want rendered with LaTeX.
+      </p>
+      <h3>Software tools</h3>
+      <p>  
+      We will support two tools in CSE 105 this quarter that help visualize some 
+      of the state machines we'll be studying: JFLAP and flap.js. JFLAP was developed starting in the 1990s 
+      by a team led by Susan Rodger (RPI, then Duke).  It is now a mature tool with a lot  of functionality. Some  
+      of the conventions and notation it uses  differ from the  course textbook for  CSE 105. 
+      The second tool, flap.js, is a webapp under development by a group of UCSD students that is being piloted in CSE 105. 
+      It is being customized  for use in this class.  Let me know 
+      if you're interested in joining the development team for flap.js to help future CSE 105 students.</p>
+      <h4>flap.js</h4>
+      <p>The homepage for the tool is at <a href="https://flapjs.github.io/FLAPJS-WebApp//" target="_blank">https://flapjs.github.io/FLAPJS-WebApp/</a>; a 
+      <a href="https://github.com/flapjs/FLAPJS-WebApp/blob/master/docs/HELP.md" target="_blank">detailed tutorial</a> is  available here. 
+      It currently has many features for designing and working with DFA and NFA.  The module on PDA allows you to draw state diagrams.</p>
+      <h4>JFLAP</h4>
+      <p>The homepage for the tool is at <a href="https://www.jflap.org/" target="_blank">www.jflap.org</a>; the current 
+      stable version is version 7.1.</p>
+      <p>For those who already have Java Virtual Machine installed. NOTE: you should be able to install JFLAP on systems with 
+        JVM even if you don't have install/Administrator rights, install JFLAP by (1)
+      Download the <a href="http://www2.cs.duke.edu/csed/jflap/log/form.php" target="_blank">JFLAP.jar file</a> 
+      from Duke University. (2) Double-click it to run JFLAP. If it doesn't launch, that probably means you 
+      don't have JVM installed. See instructions below. (3) Go to Preferences, then select "Set the Empty String Character" 
+      and change it from "Lambda" to "Epsilon." 
+      This will make JFLAP match the notation we use in the book and in class for the empty string character.
+      </p>
+      <p>If you don't already have JVM (Java Virtual Machine) installed on your computer.
+      you'll need to get the JVM in order to run JFLAP. You will need install/Administrator rights to do this. To install:
+      (1) Go <a href="https://java.com/en/download/" target="_blank">here</a> for the latest version of Java, (2)
+      download JDK 8 for your personal machine and install it (you may need to reboot), (3)
+      follow the "Basic Install and Configuration" instructions above to install and configure JFLAP.
+      </p>
+      <h4>JFLAP FAQs</h4>
+      <dl>
+        <dt>Regular expressions</dt><dd>Do not use whitespace in your regular expressions unless a 
+          space is a valid symbol in the alphabet. JFLAP uses a + symbol instead of the U used in the textbook 
+          to indicate union.</dd>
+        <dt>Start and Accept States</dt><dd>Don't forget to specify these when drawing your automata!</dd>
+        <dt>Multiple Transitions</dt><dd>If you need multiple possible inputs for the same arrow in your diagram 
+          (e.g. if you can move between states on either a 0 or a 1), this is done by creating separate edges in JFLAP 
+          for each input symbol. JFLAP will combine these into one arrow on your diagram. Automata with transitions 
+          labeled with a comma (e.g. "0,1") are not equivalent, because those transitions will not be followed unless 
+          "0,1" actually appears in your input string.</dd>
+        <dt>Empty String</dt><dd>In class and in the textbook, we use ε (epsilon) to denote the empty string. The instructions 
+            above help you change the JFLAP default λ (lambda) to match our conventions. If you need a state transition 
+            (or a stack symbol for PDA's) for ε, do not enter any characters into the text box for that transition and ε will appear. 
+            Entering a space does not work; that transition will be followed only if the input string has a space on it. 
+            Similarly, entering E or "epsilon" will not work because JFLAP will try to match those exact symbols in your 
+            input string for the transition.</dd>
+        <dt>Push Down Automata</dt><dd>Each transition has three labels: an input symbol, a stack symbol to pop, 
+            and a stack symbol to push. JFLAP uses the semicolon (;) instead of a right arrow to separate the stack symbols. 
+            Any of the three labels can be the empty string. Settings: Your PDAs should be "Single Character Input" 
+            (this option appears when you first create an automaton), and they should accept by final state, not by empty stack.</dd>
+        <dt>Context Free Grammars</dt><dd>If you have a production rule of the form "S -&gt; A | B", enter it as two rules 
+          "S -&gt; A" and "S -&gt; B"</dd>
+      </dl>
+    <a name="grades"></a>
+    <h2 style="line-height: 20px;"><br><br>Grading and academic integrity<br><br><br></h2>
+    <p>Grades in this class are designed to reflect your work and to document evidence of your learning this core
+      material.
+      Please reach out to your instructor (minnes@ucsd.edu or dgrier@ucsd.edu) if you face extenuating circumstances that you think will impede your
+      ability to participate in the planned CSE 105 activities; I'd like to work out a solution together.
+    </p>
+    <p>
+      The graded components for CSE 105 will be Review quizzes, Homework, Project, Midterm, and Final exam.
+      Your overall grade for CSE 105 will be computed using the weights
+    </p><dl>
+      <dd><a href="http://www.gradescope.com" aria-label="Go to Gradescope"><b>Review quizzes</b></a>: 
+        8% of overall score. You will need to achieve a passing grade
+        (70%) with integrity on the
+        review quiz component of this class to pass this course.<br><br>
+        <em>Why?</em> To help you
+        track and confirm your understanding of the concepts and examples we work in class
+        and give you immediate feedback.<br>
+        <em>How?</em> Quizzes can be submitted as many times (with no penalty) as you like
+        until the quiz deadline:
+        the three quizzes each week are all due on Friday (with late submission open until Sunday; 
+        no penalty for late submission of quizzes).
+        The lowest three quiz scores will not be
+        included in your overall review quiz average. You can collaborate with other CSE 105
+        students on review quizzes and you can ask questions about them in public
+        posts on Piazza and in drop-in help hours.<br><br>
+      </dd>
+      <dd><a href="assignments.html" aria-label="Go to assignments page"><b>Homework</b></a>: 36% of overall score. 
+        You will need to achieve a passing grade
+        (70%) with integrity on the homework
+        component of this class to pass this course.<br><br>
+        <em>Why?</em> To give you practice with the main concepts and techniques of the course, while getting to
+        know and learn from your classmates.<br>
+        <em>How?</em> Weekly homework may be done individually or in groups of up to 3 students.
+        You may switch HW partners for different HW assignments.
+        Your HW partners may be from either lecture section for the class.
+        The lowest HW score will not be included in your
+        overall HW average. Please ensure your name(s) and PID(s)
+        are clearly visible on the first page of your homework
+        submission and then upload the PDF to
+        <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>.
+        If working in a group, <b>submit only one submission per group</b>: one partner uploads the
+        submission through their Gradescope account and then adds the other group member(s) to the Gradescope submission
+        by selecting their name(s) in the "Add Group Members" dialog box. You will need to re-add your group member(s)
+        every time you resubmit a new version of your assignment. Each homework question will be graded either for
+        <b>correctness</b> (including clear and precise explanations and justifications of all answers) or
+        <b>fair effort completeness</b>. You may only collaborate on HW with CSE 105 students in your group; if your
+        group has questions about a HW problem, you may ask in drop-in help hours or post a private
+        post (visible only to the Instructors) on Piazza.<br><br>
+      </dd>
+      <dd><a href="assignments.html" aria-label="Go to assignments page"><b>Project</b></a>: 12% of overall score. 
+        <br><br>
+        <em>Why?</em> To go deeper and extend your work on assignments and to explore an application of your
+        choosing.<br>
+        <em>How?</em> During emergency remote instruction in the last few years, we discovered
+        that video assessment and some open-ended personalized projects help ensure fairness
+        and can be less stressful for students than in-person midterm exams. Projects 
+        give you another opportunity to work through class material and demonstrate your understanding.<br><br>
+      </dd>
+      <dd><a href="overview_calendar.html" aria-label="Go to class calendar"><b>Midterm</b></a>: 16% of overall score. 
+        <br><br>
+        <em>Why?</em> To review the first half of the course and solidify your understanding of CSE 105's foundational
+        material.<br>
+        <em>How?</em> The midterm exam will be during scheduled lecture time (see date on class calendar). 
+        You will need to attend the class for which you are enrolled.<br><br>
+      </dd>
+      <dd><a href="overview_calendar.html" aria-label="Go to class calendar"><b>Final</b></a>: 28% of overall score. 
+        You will need to achieve a passing grade with integrity on the final
+        component of this class to pass this course.<br><br>
+      <em>Why?</em> To review the entire quarter and solidify your understanding of CSE 105's foundational
+      material.<br>
+      <em>How?</em> Cumulative test on class content at the scheduled final exam slot for this class during exam week.
+      The exam must reflect your own independent effort. The exam may have a combination of True/False, multiple
+      choice, select-all-that-apply, and free-response questions. The parts of the final exam 
+      corresponding to the content covered on the midterm may replace the midterm exam score.
+      </dd>
+    </dl>
+    <p>The UC San Diego Academic Integrity pledge is
+      <a href="https://academicintegrity.ucsd.edu/forms/form-pledge.html" target="_blank">here</a>.
+      Academic integrity violations will be taken seriously and reported to the campus-wide Academic Integrity Office.
+      Key facts about academic integrity related to CSE 105:
+    </p><ul>
+      <li>Use only resources explicitly allowed for each assignment. Resources not affiliated with this quarter's
+        version of the class may use inconsistent notation or definitions. If you need help, please reach out to the
+        instructor, TAs, and tutors.</li>
+      <li>Do not share written solutions or partial solutions for homework with other students in the class who are not
+        in your group. Doing so would dilute their learning experience and detract from their success in the class.</li>
+      <li>Before and during taking any individual assessment, do not attempt to obtain information about the contents of
+        the exam from students who have already taken it or from any nonauthorized source.</li>
+      <li>You may not ask for help from anyone while taking individual assessments since they are intended to reflect
+        <i>your own</i> mastery of the material. In particular, you may not collaborate on exam questions with other
+        students in the class and you may not post any portion of the exam on forums where others may assist you.
+      </li>
+      <li>After taking an exam or quiz, do not discuss its contents with anyone in the class
+        who has not yet taken it. Do not post information about it or share information about it with others who haven't
+        taken it.</li>
+    </ul>
+    <p></p>
+    <p>UC San Diego has fantastic resources to support your learning, with integrity. Of course, the instructional
+      team for CSE 105 is here to help you navigate the course content. The
+      <a href="http://jacobsschool.ucsd.edu/idea/" aria-label="Go to IDEA Center" target="_blank">
+        Jacobs School of Engineering IDEA Center</a> organizes group study sessions and can connect
+      you with student organizations.
+      The <a href="https://commons.ucsd.edu/" aria-label="Go to Teaching + Learning Commons" target="_blank">Teaching
+        and Learning Commons</a>
+      continues to offer their full suite of student success programs, including learning strategies coaching.
+    </p>
+  </div>
+  <div class="row">
+    <a name="policy"></a>
+    <h2>Policies</h2>
+    <h3>Regrades</h3>
+    <p>Regrades need to be requested within three days of announcement of grades. The regrade window will
+      be set in <a href="http://gradescope.com" target="_blank" aria-label="Go to Gradescope">Gradescope</a>.
+      In the regrade request, include a brief but detailed explanation of why you
+      think there was an error in the grading. A regrade request may lead to us reviewing the entire assignment and may
+      lead to the score
+      being adjusted up or down depending on any errors found in the original grading. All regrades will
+      be considered once the regrade window closes; thank you in advance for your patience while we
+      carefully look through them.</p>
+    <h3>Accommodations for students with disabilities</h3>
+    <p>We would like to work with each of you to make this course accessible
+      and approachable. All course material is available in multiple formats
+      to improve support for screen readers. Videos will also be captioned (to the
+      best of our abilities). We need and want to hear from you if additional accommodations
+      would improve your experience in the course.
+      If you have documented need for accommodations because of a disability,
+      please work with the Office for Students with Disabilities (OSD)
+      to get a current Authorization for
+      Accommodation (AFA) letter. The office is located in
+      University Center 202 behind Center Hall and also provides
+      the <a href="https://academicaffairs.ucsd.edu/sso/osdsp/home" target="_blank">OSD Student Portal</a>. 
+      We ask that you work
+      to organize the AFA and to let us know about it as early in the quarter as possible
+      so that we can best support your needs.
+      For more information, see
+      <a href="http://disabilities.ucsd.edu" target="_blank" aria-label="Disability Resources at UCSD">Disability
+        Resources at UCSD</a>.
+    </p>
+    <h3>Class material and intellectual property</h3>
+    <p> Our lectures and course materials, including videos, assignments, and
+      similar materials, are protected by U.S. copyright law and by University policy. We are the
+      exclusive owner of the copyright in those materials we create. You may take notes and make
+      copies of course materials for your own use. You may also share those materials with another
+      student who is enrolled in or auditing this course.
+      You may not reproduce, distribute or display (post/upload) lecture notes or recordings or
+      course materials in any other way — whether or not a fee is charged — without our express
+      prior written consent. You also may not allow others to do so.
+      If you do so, you may be subject to student conduct proceedings under the UC San Diego
+      Student Code of Conduct.</p>
+    <p>
+      Similarly, you own the copyright in your original work. If I am interested in
+      posting your answers or papers on the course web site, I will ask for your written permission.</p>
+    <h3>Solicitation</h3>
+    <p> Individuals are not permitted to approach students to offer services of any kind in exchange 
+      for pay, including tutoring services. This is considered solicitation for business and is 
+      strictly prohibited by University policy.</p>
+  </div>
+  <div class="row">
+    <h2>Learning goals</h2>
+    <p>You can find the learning outcomes for CSE 105 in this
+      <a href="overview_outcome.html" aria-label="Go to Learning Outcomes Overview page">overview page</a>.
+      The <a href="index.html">Theory-CS homepage</a> also links to archived course sites.
+    </p>
+  </div>
+</div>
