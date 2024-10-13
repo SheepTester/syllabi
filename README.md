@@ -15,3 +15,7 @@ CSE 230 | https://ucsd-cse230.github.io/fa23/
 CSE 125 | https://cse125.ucsd.edu/2024/
 CSE 168 | https://cseweb.ucsd.edu/~viscomp/classes/cse168/sp24/168.html
 CSE 231 | https://ucsd-cse231.github.io/sp24/
+CSE 258 | https://cseweb.ucsd.edu/classes/fa24/cse258-b/
+CSE 260 | https://sites.google.com/ucsd.edu/cse260-fall-2024/home
+CSE 291B | https://cseweb.ucsd.edu/~mcoblenz/teaching/291B00_fall2024/
+CSE 291K | https://plsyssec.github.io/cse291k-fall24/
