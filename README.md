@@ -19,3 +19,4 @@ CSE 258 | https://cseweb.ucsd.edu/classes/fa24/cse258-b/
 CSE 260 | https://sites.google.com/ucsd.edu/cse260-fall-2024/home
 CSE 291B | https://cseweb.ucsd.edu/~mcoblenz/teaching/291B00_fall2024/
 CSE 291K | https://plsyssec.github.io/cse291k-fall24/
+CSE 272 | https://cseweb.ucsd.edu/~tzli/cse272/wi2025/
